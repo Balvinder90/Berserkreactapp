@@ -1,0 +1,483 @@
+@font-face {
+  font-family: "CC Wild Words";
+  src: url("../font/CCWildWordsRoman.eot");
+  src: url("../font/CCWildWordsRoman.eot?#iefix") format("embedded-opentype"),
+    url("../font/CCWildWordsRoman.woff2") format("woff2"),
+    url("../font/CCWildWordsRoman.woff") format("woff"),
+    url("../font/CCWildWordsRoman.ttf") format("truetype"),
+    url("../font/CCWildWordsRoman.svg#CCWildWordsRoman") format("svg");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@mixin container {
+  max-width: 130rem;
+  margin: 4rem auto;
+  padding: 0 1rem;
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.offscreen {
+  position: fixed;
+  top: 9999px;
+  left: 9999px;
+}
+
+*,
+*:before,
+*:after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #000000;
+  font-family: "CC Wild Words";
+  color: #ffffff;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+h4 {
+  font-size: 1.4rem;
+  line-height: 1.4rem;
+  color: #ca2627;
+  margin-bottom: 1.6rem;
+}
+
+p {
+  font-size: 1.4rem;
+  line-height: 2rem;
+  color: #d1d1d1;
+  margin-bottom: 1.6rem;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+h2 {
+  font-size: 3rem;
+  line-height: 1.6rem;
+  color: #ca2627;
+  margin-bottom: 3.6rem;
+  text-align: center;
+}
+
+.logo {
+  &__container {
+    max-width: 60.3rem;
+    margin: 1rem auto;
+    padding: 0 2rem;
+  }
+  &__berserk {
+    width: 100%;
+    transition: all 1s;
+  }
+}
+
+.navigation {
+  max-width: 30rem;
+  margin: auto;
+  margin-top: 3rem;
+  &__list {
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+  }
+  &__link {
+    font-size: 1.4rem;
+    width: 8rem;
+    height: 8rem;
+    text-decoration: none;
+    background-color: #ca2627;
+    color: #000000;
+    padding: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    position: relative;
+    transition: all 0.5s;
+    overflow: hidden;
+    border: none;
+    outline: none;
+
+    &:before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      height: 100%;
+      width: 25%;
+      background-color: #e43232;
+      z-index: 1;
+      transform: translateX(-100%);
+      transition: all 0.5s;
+    }
+
+    &:hover:before {
+      transform: translateX(400%);
+    }
+  }
+}
+
+.about {
+  @include container;
+  margin-bottom: 0;
+
+  &__img-container {
+    max-width: 42.85rem;
+    float: right;
+    margin-top: 8rem;
+
+    &-guts {
+      width: 100%;
+      will-change: transform;
+      image-rendering: -webkit-optimize-contrast;
+    }
+  }
+}
+
+.volumes {
+  @include container;
+  margin-bottom: 4rem;
+
+  &__list {
+    display: grid;
+    margin-top: 4rem;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 2rem;
+    row-gap: 4rem;
+  }
+
+  &__item:hover &__img {
+    box-shadow: #ca2627 0rem 0rem 2rem;
+    transform: translateY(1.5rem);
+  }
+
+  &__item:hover &__desc {
+    background-color: #eeeeee;
+  }
+
+  &__img {
+    width: 23rem;
+    display: block;
+    margin: auto;
+    position: relative;
+    z-index: -1;
+    box-shadow: #ca2627 0rem 0rem 0.7rem;
+    transition: all 0.6s;
+  }
+
+  &__loading {
+    width: 5rem;
+    display: block;
+    margin: auto;
+    animation: pulse 1s infinite;
+  }
+
+  &__desc {
+    margin: auto;
+    width: 30rem;
+    background-color: #d1d1d1;
+    border: 0.1rem solid #000000;
+    padding: 0.5rem;
+    color: #000000;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 1.4rem;
+    z-index: 1;
+    transition: all 1s;
+    position: relative;
+  }
+
+  &__button {
+    display: block;
+    margin: auto;
+    margin-top: 2rem;
+    background-color: #ca2627;
+    color: #000000;
+    width: 12rem;
+    padding: 0.7rem;
+    border-radius: 3rem;
+    border: none;
+    outline: none;
+    font-family: "CC Wild Words";
+    font-size: 1.4rem;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+
+    &:before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      height: 100%;
+      width: 25%;
+      background-color: #e43232;
+      z-index: 1;
+      transform: translateX(-100%);
+      transition: all 0.5s;
+    }
+
+    &:hover:before {
+      transform: translateX(400%);
+    }
+  }
+
+  &__details {
+    margin-top: 2rem;
+    text-align: center;
+  }
+
+  &__purchase {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__vendor {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2rem;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &__cart {
+    width: 2.2rem;
+    height: 2.2rem;
+    background-color: #ca2627;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 1.5rem;
+    transition: all 1s;
+
+    &-icon {
+      width: 1.2rem;
+      height: 1.2rem;
+    }
+  }
+
+  &__info {
+    font-size: 1.4rem;
+    text-decoration: none;
+    margin-bottom: 0;
+    color: #ca2627;
+    border-bottom: 0.1rem solid #000000;
+    transition: all 0.4s;
+
+    &:hover {
+      border-bottom: 0.1rem solid #ca2627;
+    }
+
+    &:hover ~ .volumes__cart {
+      transform: translateX(0.7rem);
+    }
+  }
+}
+
+.author {
+  @include container;
+  margin-bottom: 0;
+
+  &__ken {
+    display: block;
+    width: 10rem;
+    height: 10rem;
+    margin: 2.5rem auto;
+
+    img {
+      border-radius: 50%;
+      height: 100%;
+      width: 100%;
+      transition: all 1s;
+    }
+  }
+
+  &__divider {
+    height: 0.2rem;
+    border: none;
+    background-color: #0f0f0f;
+    color: #0f0f0f;
+    margin: 1.4rem 0;
+  }
+
+  &__tribute {
+    max-width: 64rem;
+    margin: 0 auto;
+    margin-top: 10rem;
+  }
+  &__guts {
+    width: 100%;
+  }
+}
+
+.error {
+  padding: 0 1rem;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  &__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  &__behelit {
+    width: 10rem;
+    animation: pulse 1s infinite;
+  }
+  &__info {
+    font-size: 3rem;
+    text-align: center;
+    color: #ca2627;
+    margin: 3.5rem 0;
+  }
+  &__link {
+    font-size: 1.4rem;
+    width: 8rem;
+    height: 8rem;
+    text-decoration: none;
+    background-color: #ca2627;
+    color: #000000;
+    padding: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    position: relative;
+    transition: all 0.5s;
+    overflow: hidden;
+    border: none;
+    outline: none;
+
+    &:before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      height: 100%;
+      width: 25%;
+      background-color: #e43232;
+      z-index: 1;
+      transform: translateX(-100%);
+      transition: all 0.5s;
+    }
+
+    &:hover:before {
+      transform: translateX(400%);
+    }
+  }
+}
+
+@media only screen and (max-width: 61.25em) {
+  .volumes {
+    &__list {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    &__img {
+      width: 27rem;
+    }
+
+    &__desc {
+      width: 34rem;
+    }
+  }
+}
+
+@media only screen and (max-width: 46.25em) {
+  .volumes {
+    &__list {
+      grid-template-columns: repeat(1, 1fr);
+    }
+    &__img {
+      width: 30rem;
+    }
+
+    &__desc {
+      width: 36rem;
+    }
+  }
+}
+
+@media only screen and (max-width: 32.5em) {
+  * {
+    text-align: center;
+  }
+
+  h2 {
+    font-size: 2.6rem;
+  }
+}
+
+@media only screen and (max-width: 25em) {
+  .volumes {
+    &__img {
+      width: 25rem;
+    }
+
+    &__desc {
+      width: 30rem;
+    }
+  }
+}
+
+@media only screen and (max-width: 20em) {
+  html {
+    font-size: 50%;
+  }
+}
+
+@media only screen and (max-width: 16.25em) {
+  html {
+    font-size: 45%;
+  }
+}
+
+@media only screen and (min-height: 87.5em) {
+  .about,
+  .author {
+    min-height: 120rem;
+    position: relative;
+  }
+
+  .about {
+    &__img-container {
+      position: relative;
+      bottom: 0;
+      right: 0;
+    }
+  }
+
+  .author {
+    &__tribute {
+      position: relative;
+      left: 0;
+      transform: translateY(100%) translateX(0%);
+    }
+  }
+}
