@@ -1,5 +1,7 @@
 # Berserk React App 
 
+## https://berserkreactapp.netlify.app/
+
 1. JSX
 2. React Hooks used - UseState and UseEffect
 3. JSON data which contains all data is imported and used by components where data is passed down via props
